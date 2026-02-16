@@ -1,0 +1,229 @@
+<!You are required to design a single-page HTML web page for a College
+Department Information Portal. This portal will be used by students to view
+department details, faculty information, weekly schedules, facilities and navigation
+links in a structured and visually clear format. The web page must be developed
+using HTML and basic CSS ( internal or inline only) and should strictly be one single
+HTML file.!>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Computer Science Department Portal</title>
+<style>
+body{
+ font-family: Arial, sans-serif;
+ margin:0;
+ line-height:1.6;
+}
+/* Heading */
+header{
+ text-align:center;
+ padding:20px;
+}
+/* Navigation */
+nav ul{
+ list-style:none;
+ margin:0;
+ padding:0;
+ background:#333;
+display:flex;
+}
+nav li{
+ margin:0;
+}
+nav a{
+ display:block;
+ padding:12px 20px;
+ color:white;
+ text-decoration:none;
+}
+nav a:hover{
+ background:#555;
+}
+/* General table style */
+table{
+ width:100%;
+ border-collapse:collapse;
+ margin:25px 0;
+}
+th, td{
+ padding:10px;
+}
+/* Faculty table */
+.faculty caption{
+ font-weight:bold;
+ margin-bottom:8px;
+}
+.faculty th{
+ background:#d9e8ff;
+ border-bottom:2px solid black;
+}
+.faculty td{
+ border-bottom:1px solid #999;
+}
+.faculty tr:nth-child(even){
+ background:#f2f2f2;
+}
+.faculty tr:hover{
+ background:#d0e4ff;
+}
+/* Timetable */
+.timetable{
+ text-align:center;
+}
+.timetable th, .timetable td{
+ border:1px solid black;
+ height:50px;
+}
+.timetable tr:nth-child(even){
+ background:#f9f9f9;
+}
+.timetable td:nth-child(even){
+ background:#eef5ff;
+}
+/* Lists */
+section{
+ margin:25px;
+}
+ul.disc{ list-style-type:disc; }
+ul.circle{ list-style-type:circle; }
+ul.square{ list-style-type:square; }
+ol.upperA{ list-style-type:upper-alpha; }
+ol.lowerA{ list-style-type:lower-alpha; }
+ol.upperR{ list-style-type:upper-roman; }
+ol.lowerR{ list-style-type:lower-roman; }
+dd{
+ margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Computer Science Department Information Portal</h1>
+<p>The Computer Science Department provides quality education, modern
+laboratories and experienced faculty to support academic excellence and research
+development.</p>
+</header>
+<!-- Navigation Menu -->
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Faculty</a></li>
+<li><a href="#">Timetable</a></li>
+<li><a href="#">Facilities</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+<!-- Faculty Details Table -->
+<section>
+<table class="faculty">
+<caption>Faculty Details</caption>
+<tr>
+<th>Faculty Name</th>
+<th>Designation</th>
+<th>Subject Handled</th>
+<th>Experience</th>
+</tr>
+<tr>
+<td>Dr. Ravi Kumar</td>
+<td>Professor</td>
+<td>Data Structures</td>
+<td>15 Years</td>
+</tr>
+<tr>
+<td>Ms. Priya</td>
+<td>Associate Professor</td>
+<td>Database Systems</td>
+<td>10 Years</td>
+</tr>
+<tr>
+<td>Mr. Arjun</td>
+<td>Assistant Professor</td>
+<td>Web Technologies</td>
+<td>6 Years</td>
+</tr>
+<tr>
+<td>Ms. Kavitha</td>
+<td>Assistant Professor</td>
+<td>Operating Systems</td>
+<td>5 Years</td>
+</tr>
+</table>
+</section>
+<!-- Weekly Timetable -->
+<section>
+<table class="timetable">
+<colgroup>
+<col style="background:#f0f0f0;">
+<col>
+<col style="background:#fff9e6;">
+<col>
+<col style="background:#e6ffe6;">
+<col>
+</colgroup>
+<tr>
+<th>Time</th>
+<th>Mon</th>
+<th>Tue</th>
+<th>Wed</th>
+<th>Thu</th>
+<th>Fri</th>
+</tr>
+<tr>
+<th>9-10</th>
+<td rowspan="2">DS Lab</td>
+<td>Maths</td>
+<td rowspan="2">DBMS Lab</td>
+<td>OS</td>
+<td>WT</td>
+</tr>
+<tr>
+<th>10-11</th>
+<td>WT</td>
+<td>CN</td>
+<td>Library</td>
+</tr>
+<tr>
+<th>11-12</th>
+<td colspan="2">Seminar</td>
+<td>AI</td>
+<td colspan="2">Project Work</td>
+</tr>
+</table>
+</section>
+<!-- Facilities & Resources Section -->
+<section>
+<h2>Facilities & Resources</h2>
+<ul class="disc">
+<li>Computer Laboratories
+ <ul class="circle">
+ <li>Programming Lab</li>
+ <li>Networking Lab</li>
+ </ul>
+</li>
+</ul>
+<ul class="square">
+<li>Digital Library</li>
+<li>Smart Classrooms</li>
+<li>Wi-Fi Campus</li>
+</ul>
+<h3>Laboratory Usage Rules</h3>
+<ol class="upperA" start="3">
+<li>Maintain silence</li>
+<li>No food items</li>
+<li>Handle equipment carefully
+ <ol class="lowerA">
+ <li>Switch off systems</li>
+ <li>Report issues</li>
+ </ol></li></ol>
+<h3>Department Terms</h3> <dl>
+<dt>HOD</dt>
+<dd>Head of the Department responsible for administration.</dd>
+<dt>Credits</dt>
+<dd>Units that measure course workload.</dd>
+<dt>CGPA</dt>
+<dd>Cumulative Grade Point Average of students.</dd> </dl>
+</section>
+</body>
+</html>
