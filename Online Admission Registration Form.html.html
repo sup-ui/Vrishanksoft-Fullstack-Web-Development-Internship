@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online College Admission Registration</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 0;
+            padding: 30px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f7f9fc;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2a5298;
+            padding-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .buttons input,
+        .buttons button {
+            width: auto;
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 25px;
+            background: #2a5298;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buttons input:hover,
+        .buttons button:hover {
+            background: #1e3c72;
+        }
+
+        .info {
+            margin-top: 30px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Online Admission Registration Form</h1>
+
+<p>Complete the form below to apply for your preferred college program.</p>
+
+<form action="/submit_admission.php"
+      method="POST"
+      target="_blank"
+      autocomplete="on"
+      novalidate>
+
+    <input type="hidden" name="application_id" value="APP2026">
+
+    <!-- Personal Details -->
+    <fieldset>
+        <legend>Student Personal Details</legend>
+
+        <label>Full Name</label>
+        <input type="text" name="fullname">
+
+        <label>Create Password</label>
+        <input type="password" name="password">
+
+        <label>Email ID</label>
+        <input type="email" name="email">
+
+        <label>Mobile Number</label>
+        <input type="tel" name="mobile">
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob">
+
+        <label>12th Percentage</label>
+        <input type="number" name="percentage" min="0" max="100">
+
+        <label>Favorite Color</label>
+        <input type="color" name="color">
+
+        <label>Upload Documents</label>
+        <input type="file" name="documents">
+
+        <label>Address</label>
+        <textarea rows="3"></textarea>
+    </fieldset>
+
+    <!-- Course Section -->
+    <fieldset>
+        <legend>Course Selection</legend>
+
+        <label>Gender</label>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+
+        <label>Hobbies</label>
+        <input type="checkbox"> Sports
+        <input type="checkbox"> Music
+        <input type="checkbox"> Reading
+
+        <label>Select Course</label>
+        <select>
+            <optgroup label="Engineering">
+                <option>Computer Science</option>
+                <option>Electronics</option>
+            </optgroup>
+            <optgroup label="Management">
+                <option>BBA</option>
+                <option>MBA</option>
+            </optgroup>
+        </select>
+
+        <label>City</label>
+        <input list="cities">
+        <datalist id="cities">
+            <option value="Bengaluru">
+            <option value="Belagavi">
+            <option value="Chikodi">
+            <option value="Davangere">
+            <option value="Manglore">
+            <option value="Udupi">
+        </datalist>
+
+        <label>Search Course</label>
+        <input type="search">
+
+        <label>LinkedIn Profile</label>
+        <input type="url">
+
+        <label>Communication Skill (1-10)</label>
+        <input type="range" min="1" max="10">
+    </fieldset>
+
+    <!-- Date & Time -->
+    <fieldset>
+        <legend>Date & Time Inputs</legend>
+
+        <label>Preferred Time</label>
+        <input type="time">
+
+        <label>Select Week</label>
+        <input type="week">
+
+        <label>Select Month</label>
+        <input type="month">
+
+        <label>Interview Date & Time</label>
+        <input type="datetime-local">
+    </fieldset>
+
+    <!-- Marks Calculation -->
+    <fieldset>
+        <legend>Entrance Marks Calculation</legend>
+
+        <label>Math Marks</label>
+        <input type="number" id="math"
+        oninput="total.value=parseInt(math.value||0)+parseInt(physics.value||0)">
+
+        <label>Physics Marks</label>
+        <input type="number" id="physics"
+        oninput="total.value=parseInt(math.value||0)+parseInt(physics.value||0)">
+
+        <label>Total Marks</label>
+        <output name="total" for="math physics"></output>
+
+        <br><br>
+        <button type="button">Custom Button</button>
+    </fieldset>
+
+    <div class="buttons">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <input type="button" value="Button Type Input">
+       <input type="image" 
+       src="https://dummyimage.com/120x40/2a5298/ffffff&text=Submit" 
+       alt="Submit">
+    </div>
+
+</form>
+
+<div class="info">
+    <h3>GET and POST</h3>
+    <p>
+        GET sends data through the URL while POST sends data in the request body.
+        POST is more secure and suitable for admission forms because it protects sensitive data.
+    </p>
+</div>
+
+</div>
+
+</body>
+</html>
