@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Job Application Portal</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg,#4b0000,#800000,#a52a2a);
+    margin:0;
+    padding:20px;
+}
+.container{
+    background:#ffffff;
+    max-width:950px;
+    margin:auto;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    color:#800000;
+}
+fieldset{
+    border:2px solid #800000;
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:8px;
+}
+legend{
+    font-weight:bold;
+    color:#800000;
+    padding:0 10px;
+}
+label{
+    display:block;
+    margin-top:10px;
+}
+input, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+input[type="radio"],
+input[type="checkbox"]{
+    width:auto;
+    margin-right:5px;
+}
+.buttons{
+    text-align:center;
+    margin-top:20px;
+}
+button, input[type="submit"], input[type="reset"]{
+    padding:10px 15px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    background:#800000;
+    color:white;
+    cursor:pointer;
+}
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover{
+    background:#4b0000;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Smart Job Application Portal</h1>
+
+<form action="submit.php" method="POST" autocomplete="on">
+
+<fieldset>
+<legend>Candidate Basic Information</legend>
+
+<label for="fullname">Full Name</label>
+<input type="text" id="fullname" name="fullname" placeholder="Enter your full name" maxlength="50" required autofocus size="40">
+
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" required autocomplete="off" size="40">
+
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Enter 10 digit phone number" placeholder="9876543210" size="15">
+
+<label for="portfolio">Portfolio Website</label>
+<input type="url" id="portfolio" name="portfolio">
+
+<label for="dob">Date of Birth</label>
+<input type="date" id="dob" name="dob" min="1980-01-01" max="2010-12-31">
+
+<label for="week">Available Interview Week</label>
+<input type="week" id="week" name="week">
+
+<label for="datetime">Preferred Interview Date & Time</label>
+<input type="datetime-local" id="datetime" name="datetime">
+
+<label for="contacttime">Preferred Contact Time</label>
+<input type="time" id="contacttime" name="contacttime">
+
+</fieldset>
+
+<fieldset>
+<legend>Job Selection</legend>
+
+<label>Job Role</label>
+<input type="radio" name="jobrole" value="Software Developer" required>Software Developer
+<input type="radio" name="jobrole" value="UI/UX Designer">UI/UX Designer
+<input type="radio" name="jobrole" value="Data Analyst">Data Analyst
+<input type="radio" name="jobrole" value="Cyber Security Engineer">Cyber Security Engineer
+
+<label>Technical Skills</label>
+<input type="checkbox" name="skills" value="HTML">HTML
+<input type="checkbox" name="skills" value="CSS">CSS
+<input type="checkbox" name="skills" value="JavaScript">JavaScript
+<input type="checkbox" name="skills" value="Python">Python
+<input type="checkbox" name="skills" value="SQL">SQL
+<input type="checkbox" name="skills" value="Cloud Computing">Cloud Computing
+
+</fieldset>
+
+<fieldset>
+<legend>Professional Details</legend>
+
+<label for="experience">Years of Experience</label>
+<input type="number" id="experience" name="experience" min="0" max="20" step="1">
+
+<label for="salary">Expected Salary</label>
+<input type="number" id="salary" name="salary" step="5000">
+
+<label for="proficiency">Skill Proficiency Level</label>
+<input type="range" id="proficiency" name="proficiency" min="0" max="10">
+
+<label for="location">Preferred Work Location</label>
+<input type="text" id="location" name="location" list="cities">
+<datalist id="cities">
+<option value="Bangalore">
+<option value="Hyderabad">
+<option value="Chennai">
+<option value="Pune">
+</datalist>
+
+<label for="color">Favorite Theme Color</label>
+<input type="color" id="color" name="color">
+
+<label for="jobcode">Search Job Code</label>
+<input type="search" id="jobcode" name="jobcode">
+
+</fieldset>
+
+<fieldset>
+<legend>Document Upload</legend>
+
+<label for="resume">Upload Resume</label>
+<input type="file" id="resume" name="resume" required>
+
+<label for="certificates">Upload Certificates</label>
+<input type="file" id="certificates" name="certificates" multiple>
+
+</fieldset>
+
+<fieldset>
+<legend>System Controlled Fields</legend>
+
+<label for="appid">Application ID</label>
+<input type="text" id="appid" name="appid" value="APP2026" readonly>
+
+<input type="hidden" name="refcode" value="INTREF123">
+
+<label for="status">HR Review Status</label>
+<input type="text" id="status" value="Pending" disabled>
+
+</fieldset>
+
+<fieldset>
+<legend>Feedback Section</legend>
+
+<label for="whyhire">Why should we hire you?</label>
+<textarea id="whyhire" name="whyhire" rows="4"></textarea>
+
+<label for="countrycode">Country Code</label>
+<input type="text" id="countrycode" name="countrycode" pattern="[A-Za-z]{3}" title="Enter 3 letter country code" maxlength="3">
+
+</fieldset>
+
+<fieldset>
+<legend>Payment & Submission</legend>
+
+<label for="slots">Number of Interview Slots</label>
+<input type="number" id="slots" name="slots" min="1" max="5">
+
+<div class="buttons">
+<input type="submit" value="Submit Application">
+<input type="reset" value="Reset">
+<button type="button" onclick="alert('Application Saved Temporarily')">Save Draft</button>
+
+<br><br>
+
+<div style="text-align:center;">
+<input type="image" 
+       src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
+       style="height:40px; width:120px; object-fit:cover;">
+</div>
+
+</div>
+
+</fieldset>
+
+</form>
+</div>
+</body>
+</html>
+```

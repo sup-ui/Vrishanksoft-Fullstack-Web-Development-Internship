@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart University Admission & Course Registration Portal</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f9;margin:0;padding:20px}
+h1{text-align:center;color:#1a237e}
+form{background:#ffffff;padding:20px;border-radius:8px;max-width:1000px;margin:auto}
+fieldset{margin-bottom:20px;padding:15px;border:1px solid #ccc;border-radius:6px}
+legend{font-weight:bold;color:#0d47a1}
+label{display:block;margin-top:10px}
+input,select,textarea,button{margin-top:5px;padding:6px;width:100%;box-sizing:border-box}
+.inline{width:auto;margin-right:10px}
+.row{display:flex;gap:15px;flex-wrap:wrap}
+.row div{flex:1}
+.buttons{text-align:center;margin-top:20px}
+output{font-weight:bold;color:#d32f2f}
+</style>
+</head>
+<body>
+
+<h1>Smart University Admission Portal</h1>
+
+<form oninput="total.value=parseInt(courseFee.value||0)+parseInt(hostelFee.value||0)">
+
+<fieldset>
+<legend>Student Details</legend>
+
+<label>Full Name
+<input type="text" name="fullname" placeholder="Enter full name" maxlength="50" required autofocus>
+</label>
+
+<label>Email
+<input type="email" name="email" required autocomplete="off">
+</label>
+
+<label>Phone Number
+<input type="tel" name="phone" pattern="[0-9]{10}" title="Enter 10 digit phone number" placeholder="9876543210">
+</label>
+
+<label>Date of Birth
+<input type="date" name="dob" min="1990-01-01" max="2010-12-31">
+</label>
+
+<label>Gender</label>
+<input type="radio" name="gender" value="Male" class="inline">Male
+<input type="radio" name="gender" value="Female" class="inline">Female
+<input type="radio" name="gender" value="Other" class="inline">Other
+
+<label>Upload Passport Photo
+<input type="file" name="photo">
+</label>
+
+<label>Application ID
+<input type="text" value="APP2026UNI001" readonly>
+</label>
+
+<input type="hidden" name="internalCode" value="UNI-INT-2026">
+
+</fieldset>
+
+<fieldset>
+<legend>Course Details</legend>
+
+<label>Select Degree Program
+<select name="program">
+<option value="BTech">B.Tech</option>
+<option value="BCA">BCA</option>
+<option value="BSc">B.Sc</option>
+<option value="MBA">MBA</option>
+</select>
+</label>
+
+<label>Specialization
+<select name="specialization">
+<optgroup label="Science">
+<option>Computer Science</option>
+<option>Data Science</option>
+</optgroup>
+<optgroup label="Management">
+<option>Finance</option>
+<option>Marketing</option>
+</optgroup>
+</select>
+</label>
+
+<label>Elective Subjects
+<select name="electives" multiple size="3">
+<option>AI</option>
+<option>Cyber Security</option>
+<option>Cloud Computing</option>
+<option disabled>Robotics (Full)</option>
+</select>
+</label>
+
+<label>Preferred Campus Location
+<input list="locations" name="campus">
+<datalist id="locations">
+<option value="Bangalore">
+<option value="Mysore">
+<option value="Mangalore">
+<option value="Hubli">
+</datalist>
+</label>
+
+</fieldset>
+
+<fieldset>
+<legend>Academic & Experience Details</legend>
+
+<label>12th Percentage
+<input type="number" min="0" max="100" step="0.1">
+</label>
+
+<label>Entrance Exam Score
+<input type="number">
+</label>
+
+<label>Passing Month
+<input type="month">
+</label>
+
+<label>Preferred Admission Week
+<input type="week">
+</label>
+
+<label>Preferred Interview Date & Time
+<input type="datetime-local">
+</label>
+
+<label>Study Hours Per Day
+<input type="range" min="0" max="12">
+</label>
+
+</fieldset>
+
+<fieldset>
+<legend>Hostel & Transport</legend>
+
+<label>Require Hostel?</label>
+<input type="radio" name="hostel" value="Yes" class="inline">Yes
+<input type="radio" name="hostel" value="No" class="inline">No
+
+<label>Room Type</label>
+<input type="checkbox" name="room" value="AC" class="inline">AC
+<input type="checkbox" name="room" value="Non-AC" class="inline">Non-AC
+<input type="checkbox" name="room" value="Sharing" class="inline">Sharing
+
+<label>Bus Route Selection
+<select>
+<option>Route 1</option>
+<option>Route 2</option>
+<option>Route 3</option>
+</select>
+</label>
+
+<label>Favorite Room Color
+<input type="color">
+</label>
+
+</fieldset>
+
+<fieldset>
+<legend>Additional Information</legend>
+
+<label>Why do you want to join this university?
+<textarea rows="4" cols="50"></textarea>
+</label>
+
+<label>Upload Marksheet
+<input type="file">
+</label>
+
+<label>Upload Certificates
+<input type="file" multiple>
+</label>
+
+<label>Personal Website / Portfolio
+<input type="url">
+</label>
+
+</fieldset>
+
+<fieldset>
+<legend>Fee Calculation</legend>
+
+<label>Course Fee
+<input type="number" id="courseFee" value="50000">
+</label>
+
+<label>Hostel Fee
+<input type="number" id="hostelFee" value="20000">
+</label>
+
+<label>Total Fee
+<output name="total">70000</output>
+</label>
+
+</fieldset>
+
+<div class="buttons">
+<button type="button">Preview</button>
+<button type="submit">Submit Application</button>
+<button type="reset">Reset Form</button>
+<br><br>
+<input type="image" 
+       src="https://dummyimage.com/120x40/2a5298/ffffff&text=Submit"
+       style="height:40px; width:120px; object-fit:cover;">
+</div>
+
+</form>
+
+</body>
+</html>
+

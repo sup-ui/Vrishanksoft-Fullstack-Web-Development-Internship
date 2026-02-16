@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Event Registration & Feedback System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: white;
+            width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            margin-top: 5px;
+            padding: 5px;
+            width: 100%;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        input[type="submit"],
+        input[type="reset"],
+        button {
+            width: auto;
+            margin-top: 10px;
+            padding: 6px 10px;
+        }
+        input[type="image"] {
+    	width: 40px;
+   	height: 40px;
+	}
+
+    </style>
+</head>
+
+<body>
+
+<h1>Online Technical Event Registration</h1>
+
+<form action="submit.php" method="POST" autocomplete="on" target="_blank">
+
+    <input type="hidden" name="registration_id" value="REG001">
+
+    <!-- Section 1 -->
+    <fieldset>
+        <legend>Participant Basic Details</legend>
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="fullname" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone"
+               pattern="[0-9]{10}" placeholder="10 digit number" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob"
+               min="1990-01-01" max="2010-12-31" required>
+
+        <label for="time">Preferred Contact Time</label>
+        <input type="time" id="time" name="contact_time" required>
+
+        <label for="idcard">Upload Student ID</label>
+        <input type="file" id="idcard" name="student_id" required>
+    </fieldset>
+
+    <!-- Section 2 -->
+    <fieldset>
+        <legend>Event Selection</legend>
+
+        <p>Select Event Category:</p>
+        <input type="radio" name="category" value="Web Development" required> Web Development<br>
+        <input type="radio" name="category" value="AI & ML"> AI & ML<br>
+        <input type="radio" name="category" value="Cyber Security"> Cyber Security<br>
+        <input type="radio" name="category" value="Cloud Computing"> Cloud Computing
+
+        <p>Select Workshops:</p>
+        <input type="checkbox" name="workshop" value="HTML & CSS"> HTML & CSS<br>
+        <input type="checkbox" name="workshop" value="JavaScript"> JavaScript<br>
+        <input type="checkbox" name="workshop" value="Python"> Python Programming<br>
+        <input type="checkbox" name="workshop" value="Data Science"> Data Science<br>
+        <input type="checkbox" name="workshop" value="Ethical Hacking"> Ethical Hacking
+    </fieldset>
+
+    <!-- Section 3 -->
+    <fieldset>
+        <legend>Schedule & Availability</legend>
+
+        <label for="month">Preferred Month</label>
+        <input type="month" id="month" name="month" required>
+
+        <label for="datetime">Preferred Date & Time</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+
+        <label for="week">Week Availability</label>
+        <input type="week" id="week" name="week" required>
+    </fieldset>
+
+    <!-- Section 4 -->
+    <fieldset>
+        <legend>Experience & Preferences</legend>
+
+        <label for="exp">Years of Experience</label>
+        <input type="number" id="exp" name="experience" min="0" max="10" required>
+
+        <label for="range">Skill Confidence (0-10)</label>
+        <input type="range" id="range" name="confidence" min="0" max="10">
+
+        <label for="color">Favorite Theme Color</label>
+        <input type="color" id="color" name="color">
+
+        <label for="search">Search Event Topics</label>
+        <input type="search" id="search" name="search">
+    </fieldset>
+
+    <!-- Section 5 -->
+    <fieldset>
+        <legend>Additional Information</legend>
+
+        <label for="feedback">Feedback / Message</label>
+        <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" name="resume" required>
+
+        <label for="portfolio">Portfolio Link (Optional)</label>
+        <input type="url" id="portfolio" name="portfolio">
+    </fieldset>
+
+    <!-- Section 6 -->
+    <fieldset>
+        <legend>Payment Section</legend>
+
+        <label for="tickets">Quantity of Tickets (1-5)</label>
+        <input type="number" id="tickets" name="tickets" min="1" max="5" required>
+
+        <br><br>
+        <input type="image"
+       src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
+       alt="Submit"
+       width="5"
+       height="5">
+
+ 
+
+        <input type="submit" value="Submit">
+
+        <input type="reset" value="Reset">
+
+        <button type="button" onclick="alert('Form Loaded Successfully')">
+            Click Me
+        </button>
+    </fieldset>
+
+</form>
+
+</body>
+</html>
