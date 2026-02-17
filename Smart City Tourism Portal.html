@@ -1,0 +1,198 @@
+<!Design and develop a Single Page Smart City Tourism Information Portal using HTML5 for a selected city or state. The webpage must be created using only one HTML file with internal CSS and should include all required head elements such as title, meta tags, viewport, style, script, and base tag. The layout must use semantic elements like header, nav, section, article, aside, footer, details, and summary. The portal should display city introduction, tourist attractions with images in a multi-column layout using Flexbox or Grid, an embedded tourism video or map using iframe, a named iframe with target-based map loading, and a canvas element drawing a rectangle, text, and gradient using JavaScript. The page must be responsive and professionally designed.!>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Smart Tourism Portal | Discover Incredible Karnataka</title>
+<meta charset="UTF-8">
+<meta name="description" content="Official Karnataka Smart Tourism Portal with attractions, travel video, interactive maps, events and visitor information.">
+<meta name="keywords" content="Karnataka Tourism, Mysore Palace, Hampi, Coorg, Travel Karnataka, Smart Tourism Portal">
+<meta name="author" content="Karnataka Tourism Department">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base target="_blank">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif}
+body{background:#eef3f9;color:#222}
+header{background:linear-gradient(135deg,#00416a,#799f0c);color:white;padding:20px}
+.header-container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:15px}
+.logo img{width:70px;height:70px}
+.logo h1{font-size:28px}
+.logo p{font-size:14px}
+nav ul{list-style:none;display:flex;gap:20px;flex-wrap:wrap}
+nav a{text-decoration:none;color:white;font-weight:bold}
+nav a:hover{color:#ffd700}
+main{display:grid;grid-template-columns:3fr 1fr;gap:20px;padding:20px}
+section{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.05)}
+h2{margin-bottom:10px;color:#00416a}
+.attractions{display:flex;gap:20px;flex-wrap:wrap}
+.attractions article{flex:1 1 250px;background:#f9fcff;padding:15px;border-radius:8px;transition:0.3s}
+.attractions article:hover{transform:scale(1.03)}
+.attractions img{width:100%;height:170px;object-fit:cover;border-radius:6px}
+aside{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.05)}
+aside h3{margin-bottom:10px;color:#00416a}
+aside ul{list-style:none}
+aside li{margin-bottom:8px}
+footer{background:#00416a;color:white;text-align:center;padding:15px;margin-top:20px}
+iframe{width:100%;height:350px;border:none;border-radius:8px}
+.map-links a{display:inline-block;margin:5px 10px 5px 0;padding:7px 12px;background:#799f0c;color:white;text-decoration:none;border-radius:5px}
+.map-links a:hover{background:#00416a}
+canvas{display:block;margin:20px auto;border:3px solid #00416a;border-radius:10px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+</style>
+
+<script>
+window.onload=function(){
+var c=document.getElementById("tourCanvas");
+var ctx=c.getContext("2d");
+var gradient=ctx.createLinearGradient(0,0,600,0);
+gradient.addColorStop(0,"#00416a");
+gradient.addColorStop(1,"#799f0c");
+ctx.fillStyle=gradient;
+ctx.fillRect(0,0,600,150);
+ctx.fillStyle="#ffffff";
+ctx.font="38px Arial";
+ctx.fillText("Explore Karnataka Tourism",80,85);
+ctx.strokeStyle="#ffd700";
+ctx.strokeRect(10,10,580,130);
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<div class="header-container">
+<div class="logo">
+<img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location Logo">
+<div>
+<h1>Karnataka Tourism</h1>
+<p>Discover Heritage • Nature • Culture</p>
+</div>
+</div>
+
+<nav>
+<ul>
+<li><a href="https://karnatakatourism.org/">Home</a></li>
+<li><a href="https://karnatakatourism.org/tourist-places/">Attractions</a></li>
+<li><a href="https://www.google.com/maps/place/Karnataka/">Map</a></li>
+<li><a href="mailto:info@karnatakatourism.org">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<canvas id="tourCanvas" width="600" height="150"></canvas>
+
+<main>
+
+<div>
+
+<section>
+<article>
+<h2>About Karnataka</h2>
+<p>Karnataka is one of India's most diverse tourism destinations offering royal palaces, UNESCO heritage sites, hill stations, beaches and wildlife sanctuaries. From Bengaluru’s innovation to Hampi’s ancient ruins, the state blends tradition with technology.</p>
+
+<details>
+<summary>History</summary>
+<p>Karnataka was ruled by powerful dynasties like the Chalukyas, Hoysalas and the Vijayanagara Empire, leaving behind architectural masterpieces.</p>
+</details>
+
+<details>
+<summary>Culture</summary>
+<p>The state is famous for Mysore Dasara, Yakshagana, Carnatic music, sandalwood crafts and silk sarees.</p>
+</details>
+
+<details>
+<summary>Climate</summary>
+<p>Coastal Karnataka is tropical, the plateau region is moderate, and hill stations like Coorg remain cool throughout the year.</p>
+</details>
+
+</article>
+</section>
+
+<section>
+<h2>Top Tourist Attractions</h2>
+<div class="attractions">
+
+<article>
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mysore_Palace_Morning.jpg" alt="Mysore Palace">
+<h3>Mysore Palace</h3>
+<p>A royal residence known for its grand architecture and world-famous Dasara celebrations.</p>
+</article>
+
+<article>
+<img src="https://karnatakatourism.org/wp-content/uploads/2020/05/Hampi.jpg" alt="Hampi">
+
+<h3>Hampi</h3>
+<p>A UNESCO World Heritage Site featuring stunning temple ruins of the Vijayanagara Empire.</p>
+</article>
+
+<article>
+<img src="https://karnatakatourism.org/wp-content/uploads/2020/05/Coorg.jpg" alt="Coorg">
+<h3>Coorg</h3>
+<p>A scenic hill station with coffee estates, waterfalls and breathtaking landscapes.</p>
+</article>
+
+</div>
+</section>
+
+<section>
+<h2>Karnataka Tourism Video</h2>
+<iframe src="https://www.youtube.com/embed/35npVaFGHMY" title="Karnataka Tourism Video" allowfullscreen></iframe>
+</section>
+
+<section>
+<h2>Interactive Karnataka Map</h2>
+
+<div class="map-links">
+<a href="https://www.google.com/maps?q=Mysore&output=embed" target="mapFrame">Mysore</a>
+<a href="https://www.google.com/maps?q=Hampi&output=embed" target="mapFrame">Hampi</a>
+<a href="https://www.google.com/maps?q=Coorg&output=embed" target="mapFrame">Coorg</a>
+<a href="https://www.google.com/maps?q=Bengaluru&output=embed" target="mapFrame">Bengaluru</a>
+</div>
+
+<iframe name="mapFrame" src="https://www.google.com/maps?q=Karnataka&output=embed" title="Karnataka Interactive Map"></iframe>
+
+</section>
+
+</div>
+
+<aside>
+<h3>Upcoming Events</h3>
+<ul>
+<li>Mysore Dasara Festival</li>
+<li>Hampi Utsav</li>
+<li>Karavali Beach Festival</li>
+</ul>
+
+<h3>Quick Links</h3>
+<ul>
+<li><a href="https://karnatakatourism.org/">Official Tourism Portal</a></li>
+<li><a href="https://www.irctc.co.in/">Book Train Tickets</a></li>
+<li><a href="https://www.goindigo.in/">Book Flights</a></li>
+</ul>
+
+<h3>Emergency Contacts</h3>
+<ul>
+<li>Police: 100</li>
+<li>Ambulance: 108</li>
+<li>Tourism Helpline: 1363</li>
+</ul>
+</aside>
+
+</main>
+
+<footer>
+<p>&copy; 2026 Karnataka Smart Tourism Portal</p>
+<p>Email: info@karnatakatourism.org</p>
+<p>
+<a href="https://facebook.com" style="color:#ffd700;text-decoration:none">Facebook</a> |
+<a href="https://twitter.com" style="color:#ffd700;text-decoration:none">Twitter</a> |
+<a href="https://instagram.com" style="color:#ffd700;text-decoration:none">Instagram</a>
+</p>
+</footer>
+
+</body>
+</html>
