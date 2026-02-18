@@ -1,0 +1,292 @@
+
+<!Design a single-page “Digital Cultural Fest 2026” event portal using HTML5. The webpage must include proper head elements such as title, meta tags, base tag, internal CSS, and JavaScript. Use semantic layout elements including header, nav, section, article, aside, footer, details, and summary. Create a Canvas welcome banner that draws shapes, gradient, and text using the 2D context. Embed an HTML5 video with multiple source formats and an audio player with multiple sources. Also embed a YouTube video using iframe with autoplay or loop features. Display different fest events using articles with images, descriptions, and date/time details. The layout should use Grid or Flexbox and must be responsive.!>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Digital Cultural Fest 2026 | Official Event Portal</title>
+<meta charset="UTF-8">
+<meta name="description" content="Official portal of Digital Cultural Fest 2026 showcasing events, promo videos, highlights, music and registration details.">
+<meta name="keywords" content="Digital Fest 2026, Cultural Fest, College Events, Dance, Drama, Coding Competition">
+<meta name="author" content="Web Developer Team">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base target="_blank">
+<style>
+body{
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+color:white;
+}
+header{
+background:rgba(0,0,0,0.7);
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+header .title{
+display:flex;
+align-items:center;
+gap:20px;
+}
+header img{
+height:80px;
+border-radius:50%;
+border:3px solid #00f5ff;
+}
+header h1{
+margin:0;
+font-size:30px;
+color:#00f5ff;
+}
+header p{
+margin:5px 0 0;
+color:#ffcc70;
+}
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
+font-weight:600;
+transition:0.3s;
+}
+nav a:hover{
+color:#00f5ff;
+}
+.container{
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:25px;
+padding:30px;
+}
+section{
+margin-bottom:40px;
+}
+canvas{
+display:block;
+margin:auto;
+border-radius:15px;
+border:4px solid #00f5ff;
+background:#111;
+box-shadow:0 0 25px #00f5ff;
+}
+video, audio{
+display:block;
+margin:auto;
+border-radius:12px;
+box-shadow:0 0 20px rgba(0,255,255,0.3);
+}
+.events{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+}
+article{
+background:rgba(255,255,255,0.08);
+padding:15px;
+border-radius:12px;
+backdrop-filter:blur(10px);
+}
+article img{
+width:100%;
+border-radius:10px;
+height:170px;
+object-fit:cover;
+}
+aside{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:12px;
+}
+aside a{
+color:#00f5ff;
+}
+footer{
+background:black;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+details{
+background:rgba(255,255,255,0.08);
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+}
+@media(max-width:900px){
+.container{
+grid-template-columns:1fr;
+}
+}
+</style>
+<script>
+window.onload=function(){
+
+var canvas=document.getElementById("welcomeCanvas");
+var ctx=canvas.getContext("2d");
+var glowOffset=0;
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+var bgGrad=ctx.createLinearGradient(0,0,canvas.width,0);
+bgGrad.addColorStop(0,"#00f5ff");
+bgGrad.addColorStop(0.5,"#ff00c8");
+bgGrad.addColorStop(1,"#00f5ff");
+ctx.fillStyle=bgGrad;
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(15,15,40,0.85)";
+ctx.fillRect(40,60,520,160);
+ctx.lineWidth=6;
+ctx.strokeStyle="rgba(255,255,255,0.6)";
+ctx.shadowBlur=20;
+ctx.shadowColor="#00f5ff";
+ctx.strokeRect(40,60,520,160);
+ctx.shadowBlur=0;
+ctx.beginPath();
+ctx.arc(100+glowOffset,140,35,0,2*Math.PI);
+var circleGrad=ctx.createRadialGradient(100+glowOffset,140,5,100+glowOffset,140,35);
+circleGrad.addColorStop(0,"#ffcc70");
+circleGrad.addColorStop(1,"#ff0066");
+ctx.fillStyle=circleGrad;
+ctx.fill();
+ctx.font="bold 34px Segoe UI";
+ctx.fillStyle="white";
+ctx.textAlign="center";
+ctx.fillText("WELCOME TO",canvas.width/2,120);
+
+ctx.font="bold 30px Segoe UI";
+ctx.fillStyle="#00f5ff";
+ctx.fillText("DIGITAL CULTURAL FEST 2026",canvas.width/2,160);
+glowOffset+=2;
+if(glowOffset>350){
+glowOffset=0;
+}
+requestAnimationFrame(draw);
+}
+draw();
+};
+</script>
+</head>
+<body>
+<header>
+<div class="title">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="College Logo">
+<div>
+<h1>Digital Cultural Fest 2026</h1>
+<p>Where Talent Meets Technology</p>
+</div>
+</div>
+<nav>
+<a href="#events">Events</a>
+<a href="#promo">Promo</a>
+<a href="#highlights">Highlights</a>
+<a href="#register">Register</a>
+</nav>
+</header>
+
+<div class="container">
+<main>
+<section>
+<canvas id="welcomeCanvas" width="600" height="300"></canvas>
+</section>
+<section id="promo">
+<h2>Event Promo Video</h2>
+<video controls width="600" height="340">
+<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+<source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+Your browser does not support the video tag.
+</video>
+</section>
+<section>
+<h2>Background Music</h2>
+<audio controls autoplay muted>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+Your browser does not support the audio element.
+</audio>
+</section>
+<section id="highlights">
+<h2>YouTube Highlights</h2>
+<iframe width="600" height="340"
+src="https://www.youtube.com/embed/tgbNymZ7vqY"
+title="Fest Highlights"
+allowfullscreen>
+</iframe>
+</section>
+
+<section>
+<h2>Multimedia Formats Information</h2>
+<article>
+<details>
+<summary>Supported Video Formats</summary>
+<p>MP4 – Highly compatible across browsers.</p>
+<p>WebM – Efficient open-source streaming format.</p>
+<p>Ogg – Free multimedia container format.</p>
+</details>
+<details>
+<summary>Supported Audio Formats</summary>
+<p>MP3 – Most widely supported compressed format.</p>
+<p>WAV – High quality uncompressed audio.</p>
+<p>Ogg – Open-source compressed format.</p>
+</details>
+</article>
+</section>
+<section id="events">
+<h2>Fest Events</h2>
+<div class="events">
+<article>
+<img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg" alt="Dance Competition">
+<h3>Dance Competition</h3>
+<p>High-energy solo and group performances.</p>
+<p>Date: 12 March 2026 | 10:00 AM</p>
+</article>
+<article>
+<img src="https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg" alt="Singing">
+<h3>Singing Competition</h3>
+<p>Express your voice and passion.</p>
+<p>Date: 13 March 2026 | 11:00 AM</p>
+</article>
+<article>
+<img src="https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg" alt="Drama">
+<h3>Drama</h3>
+<p>Creative theatrical stage performance.</p>
+<p>Date: 14 March 2026 | 2:00 PM</p>
+</article>
+<article>
+<img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg" alt="Coding">
+<h3>Coding Event</h3>
+<p>24-hour innovation hackathon challenge.</p>
+<p>Date: 15 March 2026 | 9:00 AM</p>
+</article>
+</div>
+</section>
+</main>
+<aside>
+<h3>Sponsors</h3>
+<p>TechNova</p>
+<p>Creative Minds Pvt Ltd</p>
+<h3>Contact</h3>
+<p>+91 9876543210</p>
+<p>+91 9123456780</p>
+<h3 id="register">Registration</h3>
+<a href="https://example.com">Click Here to Register</a>
+<h3>Event Updates</h3>
+<p>Registrations closing soon.</p>
+<p>Limited seats available.</p>
+</aside>
+
+</div>
+<footer>
+<p>© 2026 Digital Cultural Fest | All Rights Reserved</p>
+<p>Email: fest2026@college.edu</p>
+<p>
+<a href="https://facebook.com">Facebook</a> |
+<a href="https://instagram.com">Instagram</a> |
+<a href="https://twitter.com">Twitter</a>
+</p>
+<p>MIT College, Innovation Street, India</p>
+</footer>
+</body>
+</html>
+
