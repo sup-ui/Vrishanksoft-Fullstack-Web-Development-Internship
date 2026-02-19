@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart City Emergency & Service Portal</title>
+<style>
+body{
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:#f4f7fb;
+color:#222;
+}
+header{
+background:#0a3d62;
+color:white;
+padding:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+header h1{
+margin:0;
+font-size:22px;
+}
+nav{
+background:#1e5f8a;
+padding:10px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+main{
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:20px;
+padding:20px;
+}
+section{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+margin-bottom:20px;
+}
+article{
+margin-top:15px;
+}
+aside{
+background:#fff;
+padding:20px;
+border-radius:8px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+height:fit-content;
+}
+footer{
+background:#0a3d62;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+button{
+padding:8px 15px;
+border:none;
+border-radius:5px;
+background:#0a3d62;
+color:white;
+cursor:pointer;
+margin-top:8px;
+}
+button:hover{
+background:#145a86;
+}
+input,select{
+padding:6px;
+margin-top:6px;
+width:100%;
+}
+#services, #priorityArea{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:10px;
+}
+.service{
+padding:10px 15px;
+background:#dff0ff;
+border-radius:6px;
+cursor:grab;
+}
+#priorityArea{
+min-height:80px;
+background:#ffe8e8;
+border:2px dashed #ff6b6b;
+align-items:center;
+}
+output{
+font-weight:bold;
+font-size:18px;
+display:block;
+margin-top:10px;
+}
+@media(max-width:768px){
+main{
+grid-template-columns:1fr;
+}
+nav{
+flex-direction:column;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Smart Emergency & City Service Portal</h1>
+<div>Metropolitan Municipal Corporation</div>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Alerts</a>
+<a href="#">Contact</a>
+</nav>
+
+<main>
+<div>
+
+<section>
+<h2>Find My Current Location</h2>
+<button onclick="detectLocation()">Detect My Location</button>
+<article id="locationResult"></article>
+<iframe id="mapFrame" width="100%" height="250" style="margin-top:10px;border:0;"></iframe>
+</section>
+
+<section>
+<h2>Emergency Service Priority Board</h2>
+<div id="services">
+<div class="service" draggable="true" ondragstart="dragStart(event)" id="ambulance">🚑 Ambulance</div>
+<div class="service" draggable="true" ondragstart="dragStart(event)" id="police">🚓 Police</div>
+<div class="service" draggable="true" ondragstart="dragStart(event)" id="fire">🔥 Fire Department</div>
+<div class="service" draggable="true" ondragstart="dragStart(event)" id="hospital">🏥 Hospital</div>
+</div>
+<h3>High Priority Area</h3>
+<div id="priorityArea" ondragover="dragOver(event)" ondrop="dropService(event)"></div>
+</section>
+
+<section>
+<h2>Save My Preferences</h2>
+<input type="text" id="username" placeholder="Enter your name">
+<select id="serviceSelect">
+<option value="Ambulance">Ambulance</option>
+<option value="Police">Police</option>
+<option value="Fire Department">Fire Department</option>
+<option value="Hospital">Hospital</option>
+</select>
+<button onclick="savePreferences()">Save</button>
+<button onclick="removePreferences()">Remove</button>
+<button onclick="emergencyClick()">Emergency Help</button>
+<article id="storageOutput"></article>
+</section>
+
+<section>
+<h2>Emergency Alert Counter</h2>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<output id="workerOutput">0</output>
+</section>
+
+</div>
+
+<aside>
+<h3>Emergency Contacts</h3>
+<p>City Helpline: 100</p>
+<p>Ambulance: 108</p>
+<p>Fire: 101</p>
+<p>Email: support@smartcity.gov</p>
+</aside>
+
+</main>
+
+<footer>
+© 2026 Metropolitan Municipal Corporation | All Rights Reserved
+</footer>
+
+<script>
+function detectLocation(){
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(showPosition,showError,{timeout:10000});
+}else{
+document.getElementById("locationResult").innerHTML="Geolocation not supported.";
+}
+}
+
+function showPosition(position){
+let lat=position.coords.latitude;
+let lon=position.coords.longitude;
+let acc=position.coords.accuracy;
+let time=new Date(position.timestamp);
+document.getElementById("locationResult").innerHTML=
+"Latitude: "+lat+"<br>Longitude: "+lon+"<br>Accuracy: "+acc+" meters<br>Timestamp: "+time;
+document.getElementById("mapFrame").src=
+"https://maps.google.com/maps?q="+lat+","+lon+"&z=15&output=embed";
+}
+
+function showError(error){
+let message="";
+switch(error.code){
+case error.PERMISSION_DENIED:
+message="Permission denied by user.";
+break;
+case error.POSITION_UNAVAILABLE:
+message="Position unavailable.";
+break;
+case error.TIMEOUT:
+message="Request timed out.";
+break;
+default:
+message="Unknown error occurred.";
+}
+document.getElementById("locationResult").innerHTML=message;
+}
+
+function dragStart(e){
+e.dataTransfer.setData("text",e.target.id);
+}
+
+function dragOver(e){
+e.preventDefault();
+}
+
+function dropService(e){
+e.preventDefault();
+let data=e.dataTransfer.getData("text");
+let node=document.getElementById(data);
+e.target.appendChild(node);
+}
+
+function savePreferences(){
+let name=document.getElementById("username").value;
+let service=document.getElementById("serviceSelect").value;
+localStorage.setItem("userName",name);
+localStorage.setItem("preferredService",service);
+document.getElementById("storageOutput").innerHTML=
+"Saved User: "+name+" | Preferred Service: "+service;
+}
+
+function removePreferences(){
+localStorage.removeItem("userName");
+localStorage.removeItem("preferredService");
+document.getElementById("storageOutput").innerHTML="Preferences Removed";
+}
+
+window.onload=function(){
+let savedName=localStorage.getItem("userName");
+let savedService=localStorage.getItem("preferredService");
+if(savedName){
+document.getElementById("storageOutput").innerHTML=
+"Welcome back "+savedName+" | Preferred Service: "+savedService;
+}
+}
+
+function emergencyClick(){
+let count=sessionStorage.getItem("clickCount")||0;
+count++;
+sessionStorage.setItem("clickCount",count);
+alert("Emergency Help Clicked "+count+" times in this session");
+}
+
+let worker;
+
+function startWorker(){
+if(typeof(Worker)!=="undefined"){
+if(typeof(worker)=="undefined"){
+worker=new Worker("emergency_worker.js");
+}
+worker.onmessage=function(event){
+document.getElementById("workerOutput").textContent=event.data;
+};
+}else{
+document.getElementById("workerOutput").textContent="Web Workers not supported";
+}
+}
+
+function stopWorker(){
+if(worker){
+worker.terminate();
+worker=undefined;
+}
+}
+</script>
+
+</body>
+</html>
