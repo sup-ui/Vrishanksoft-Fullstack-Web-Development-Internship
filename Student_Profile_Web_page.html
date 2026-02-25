@@ -1,0 +1,230 @@
+<!Design and develop a responsive Student Profile Web Page using only HTML and internal CSS. 
+The page should include a header section with college name and page title using height, padding, background-color, 
+and outline. 
+Create a student profile card with photo, name, USN, branch, email, and bio using proper width, max-width, margin auto, padding, border, outline, outline-offset, and min-height. Demonstrate responsive behavior without horizontal scrolling and ensure the image uses width: 100% and height: auto. Also include examples to show CSS Box Model calculation, outline styles (dotted, dashed, solid, positive and negative offset), and the difference between height: auto and height: initial.
+>!
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            padding: 20px;
+            color: #333;
+        }
+
+        header{
+            height: 130px;
+            background: linear-gradient(to right, #ffffff, #e6f0ff);
+            text-align: center;
+            padding: 35px;
+            outline: 5px solid #0f2027;
+            border-radius: 12px;
+        }
+
+        header h1{
+            color: #0f2027;
+            letter-spacing: 1px;
+        }
+
+        header h2{
+            margin-top: 10px;
+            font-weight: normal;
+            color: #2c5364;
+        }
+
+        .profile-card{
+            width: 100%;
+            max-width: 600px;
+            min-height: 520px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #0f2027;
+            outline: 6px solid #00c6ff;
+            outline-offset: 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        .profile-card img{
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            outline: 4px solid #2c5364;
+        }
+
+        .profile-card h3{
+            margin-bottom: 15px;
+            color: #0f2027;
+            font-size: 24px;
+        }
+
+        .info{
+            margin-bottom: 10px;
+            padding: 8px;
+            background: #f4f9ff;
+            border-radius: 8px;
+        }
+
+        .bio{
+            margin-top: 20px;
+            line-height: 1.7;
+            padding: 15px;
+            background: #eef7ff;
+            border-radius: 10px;
+        }
+
+        .outline-demo{
+            max-width: 900px;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .box{
+            width: 130px;
+            height: 110px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .dotted{
+            outline: 4px dotted #ffffff;
+            outline-width: 4px;
+            outline-color: #ff4b2b;
+        }
+
+        .dashed{
+            outline: 4px dashed #00b09b;
+        }
+
+        .solid{
+            outline: 4px solid #1e90ff;
+        }
+
+        .offset-positive{
+            outline: 4px solid #ffd200;
+            outline-offset: 12px;
+        }
+
+        .offset-negative{
+            outline: 4px solid #ff6a00;
+            outline-offset: -8px;
+        }
+
+        .auto-initial-container{
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+        .auto-box{
+            height: auto;
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            border: 2px solid #00c6ff;
+            outline: 5px solid #0f2027;
+        }
+
+        .initial-box{
+            height: initial;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ff4b2b;
+            outline: 5px solid #203a43;
+        }
+
+        .width-demo{
+            width: 400px;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 60px auto;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px){
+            header{
+                height: auto;
+                padding: 25px;
+            }
+
+            .profile-card{
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MIT Engineering College</h1>
+    <h2>Student Profile</h2>
+</header>
+
+<section class="profile-card">
+    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12" alt="Student Photo">
+    <h3>Rohit Sharma</h3>
+
+    <div class="info"><strong>USN:</strong> 1AB23CS045</div>
+    <div class="info"><strong>Branch:</strong> Computer Science & Engineering</div>
+    <div class="info"><strong>Email:</strong> rohitsharma8@mail.com</div>
+
+    <div class="bio">
+        Motivated Computer Science student with strong interest in web technologies,
+        UI design and problem solving. Actively involved in hackathons and technical
+        communities. Focused on building scalable and efficient digital solutions.
+    </div>
+</section>
+
+<section class="outline-demo">
+    <div class="box dotted">Dotted</div>
+    <div class="box dashed">Dashed</div>
+    <div class="box solid">Solid</div>
+    <div class="box offset-positive">+Offset</div>
+    <div class="box offset-negative">-Offset</div>
+</section>
+
+<section class="auto-initial-container">
+    <div class="auto-box">
+        <strong>Height: auto</strong><br><br>
+        This container expands naturally as more content is added.
+        The height automatically adjusts based on the internal text.
+        This makes layouts flexible and responsive.
+    </div>
+
+    <div class="initial-box">
+        <strong>Height: initial</strong><br><br>
+        This container uses the browser's default initial height value.
+        Content rendering behaves differently compared to auto,
+        demonstrating how CSS property values affect layout behavior.
+    </div>
+</section>
+
+<section class="width-demo">
+    Box Model Example
+</section>
+
+</body>
+</html>
