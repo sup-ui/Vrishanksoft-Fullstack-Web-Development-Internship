@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elite College E-Magazine</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        body{
+            margin:0;
+            background:linear-gradient(to right,#eef2f3,#dfe9f3);
+            font-family:'Inter', Arial, Helvetica, sans-serif;
+            color:#1a1a1a;
+        }
+
+        header{
+            background:linear-gradient(135deg,#141e30,#243b55);
+            color:white;
+            padding:60px 20px;
+            text-align:center;
+            text-transform:uppercase;
+            text-shadow:3px 3px 10px rgba(0,0,0,0.7);
+            font-family:'Cinzel', Georgia, serif;
+        }
+
+        header h1{
+            margin:0;
+            font-size:3.5rem;
+            letter-spacing:5px;
+        }
+
+        header h2{
+            margin:15px 0 5px;
+            font-size:2rem;
+        }
+
+        header p{
+            font-size:1.2rem;
+            text-transform:capitalize;
+        }
+
+        section{
+            width:80%;
+            margin:40px auto;
+            background:white;
+            padding:50px;
+            border-radius:20px;
+            box-shadow:0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .article-title{
+            font-family:'Cinzel', Georgia, serif;
+            font-size:2.2rem;
+            margin-bottom:10px;
+        }
+
+        .author{
+            font-style:italic;
+            font-weight:600;
+            margin-bottom:25px;
+        }
+
+        .article-content{
+            text-indent:60px;
+            line-height:2;
+            letter-spacing:0.6px;
+            word-spacing:6px;
+            text-align:justify;
+            text-align-last:right;
+            font-size:1.15rem;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        .underline{ text-decoration: underline; }
+        .overline{ text-decoration: overline; }
+        .linethrough{ text-decoration: line-through; }
+        .doubleu{
+            text-decoration-line: underline;
+            text-decoration-style: double;
+            text-decoration-color:#243b55;
+            text-decoration-thickness:4px;
+        }
+        .wavy{
+            text-decoration-line: underline;
+            text-decoration-style: wavy;
+            text-decoration-color:crimson;
+            text-decoration-thickness:3px;
+        }
+        .shorthand{
+            text-decoration: underline dotted teal 5px;
+        }
+
+        .upper{ text-transform:uppercase; }
+        .lower{ text-transform:lowercase; }
+        .cap{ text-transform:capitalize; }
+
+        .shadow-simple{ text-shadow:4px 4px 6px gray; }
+        .shadow-blur{ text-shadow:0 0 12px #0077ff; }
+        .shadow-neon{
+            color:#fff;
+            background:black;
+            display:inline-block;
+            padding:15px;
+            text-shadow:
+                0 0 5px #ff00ff,
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 40px #ff00ff;
+        }
+
+        .italic{ font-style:italic; }
+        .oblique{ font-style:oblique; }
+        .bold{ font-weight:bold; }
+        .extraheavy{ font-weight:900; }
+        .smallcaps{ font-variant:small-caps; }
+        .fontshorthand{
+            font: italic small-caps 800 1.4rem 'Cinzel', serif;
+        }
+
+        .px{ font-size:24px; }
+        .em{ font-size:1.8em; }
+        .rem{ font-size:2rem; }
+        .vw{ font-size:3vw; }
+
+        .icons{
+            text-align:center;
+        }
+
+        .icons i{
+            font-size:45px;
+            margin:25px;
+            color:#243b55;
+            text-shadow:3px 3px 8px rgba(0,0,0,0.3);
+        }
+
+        footer{
+            text-align:center;
+            padding:25px;
+            background:#141e30;
+            color:white;
+            font-size:1rem;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Royal Crest College</h1>
+    <h2>The Intellectual Review</h2>
+    <p>voices ideas inspiration</p>
+</header>
+
+<section>
+    <h2 class="article-title">Innovation in the Era of Artificial Intelligence</h2>
+    <p class="author">By Aarav Mehta</p>
+
+    <p class="article-content">
+        Artificial Intelligence is redefining the academic landscape. Universities now integrate intelligent systems into research laboratories, digital libraries, and collaborative classrooms. Students explore new dimensions of creativity while accessing global knowledge networks that expand beyond geographical boundaries.
+    </p>
+
+    <p class="article-content">
+        With technology shaping the future, educational institutions must cultivate adaptability and critical thinking. Innovation thrives when learners are empowered with tools that enhance problem-solving abilities. The transformation is not merely digital but intellectual, preparing scholars for leadership in a rapidly evolving world.
+    </p>
+</section>
+
+<section>
+    <h2 class="underline">Underline Decoration</h2>
+    <h2 class="overline">Overline Decoration</h2>
+    <h2 class="linethrough">Line Through Decoration</h2>
+    <h2 class="doubleu">Double Underline with Thickness</h2>
+    <h2 class="wavy">Wavy Colored Underline</h2>
+    <h2 class="shorthand">Shorthand Decoration Property</h2>
+</section>
+
+<section>
+    <p class="upper">this announcement appears completely in uppercase.</p>
+    <p class="lower">THIS MESSAGE IS SHOWN IN LOWERCASE FORMAT.</p>
+    <p class="cap">this editorial message uses capitalize transformation.</p>
+</section>
+
+<section>
+    <h2 class="shadow-simple">Classic Shadow Heading</h2>
+    <h2 class="shadow-blur">Blur Glow Heading</h2>
+    <h2 class="shadow-neon">Neon Editorial Glow</h2>
+</section>
+
+<section>
+    <p class="italic">Normal italic styling demonstration.</p>
+    <p class="oblique">Oblique font style demonstration.</p>
+    <p class="bold">Bold weight demonstration.</p>
+    <p class="extraheavy">900 heavy weight demonstration.</p>
+    <p class="smallcaps">Small Caps Variant Demonstration.</p>
+    <p class="fontshorthand">Font Shorthand Property Applied Here.</p>
+</section>
+
+<section>
+    <p class="px">Font size example using px unit.</p>
+    <p class="em">Font size example using em unit.</p>
+    <p class="rem">Font size example using rem unit.</p>
+    <p class="vw">Font size example using vw unit responsive to screen width.</p>
+</section>
+
+<section class="icons">
+    <i class="fa-solid fa-house"></i>
+    <i class="fa-solid fa-book-open"></i>
+    <i class="fa-solid fa-envelope"></i>
+    <i class="fa-solid fa-user-graduate"></i>
+    <i class="fa-solid fa-bell"></i>
+</section>
+
+<footer>
+    © 2026 Royal Crest College | Official E-Magazine
+</footer>
+
+</body>
+</html>
+
