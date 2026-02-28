@@ -1,0 +1,325 @@
+<!Design a single webpage layout to promote a National Level Technical Fest organized by our college. 
+The webpage should effectively showcase event details, speakers, registration information, and important announcements while maintaining a clean and attractive user interface. It must demonstrate proper use of CSS concepts such as positioning (static, relative, absolute, fixed, sticky), z-index layering, float for text wrapping, overflow handling, alignment techniques, and opacity or RGBA effects to create a visually appealing and well-structured promotional page.!>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>National Level Technical Fest 2026</title>
+
+<!-- ===============================
+     INTERNAL CSS STARTS HERE
+     All styling is written inside this file as required
+================================ -->
+<style>
+
+/* ====== Basic Reset ====== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ====== Body Styling (position: static by default) ====== */
+body{
+    background-color:#f4f6f9;
+    line-height:1.6;
+}
+
+/* ==========================================================
+   1. STICKY NAVIGATION BAR
+   - position: sticky
+   - top: 0
+   - z-index used so it stays above everything
+========================================================== */
+nav{
+    position: sticky;   /* Makes navbar stick while scrolling */
+    top: 0;             /* Sticks to top */
+    z-index: 1000;      /* Higher layer than other elements */
+    background: #0a192f;
+    padding:15px 0;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#64ffda;
+}
+
+/* ==========================================================
+   2. HERO SECTION
+   - position: relative for container
+   - absolute positioning for text
+   - z-index layering
+========================================================== */
+.hero{
+    position: relative;
+    height: 450px;
+    background: url('https://picsum.photos/1600/900?tech') no-repeat center center/cover;
+}
+/* Dark overlay using opacity for better text visibility */
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    opacity:0.5;  /* Opacity effect */
+}
+
+/* Event title text positioned over image */
+.hero-text{
+    position:absolute;   /* Positioned relative to .hero */
+    top:50%;             /* Vertical center */
+    left:50%;            /* Horizontal center */
+    transform:translate(-50%, -50%);
+    color:white;
+    text-align:center;
+    z-index:2;           /* Ensures text is above overlay */
+}
+
+.hero-text h1{
+    font-size:50px;
+}
+
+.hero-text p{
+    font-size:20px;
+}
+
+/* ==========================================================
+   3. ABOUT SECTION (FLOAT PROPERTY)
+========================================================== */
+.about{
+    padding:60px 80px;
+    background:white;
+}
+
+/* Image floated left so text wraps around */
+.about img{
+    float:left;            /* FLOAT PROPERTY USED */
+    width:250px;
+    margin-right:20px;
+    margin-bottom:10px;
+    border-radius:10px;
+}
+
+/* Clear float after section */
+.about::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+
+/* ==========================================================
+   4. SPEAKERS SECTION (CENTER ALIGNMENT USING FLEXBOX)
+========================================================== */
+.speakers{
+    padding:60px 20px;
+    text-align:center;
+    background:#e6f1ff;
+}
+
+.speaker-container{
+    display:flex;             /* FLEXBOX for alignment */
+    justify-content:center;   /* Centers horizontally */
+    gap:30px;
+    margin-top:30px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* ==========================================================
+   5. REGISTRATION PANEL (OVERFLOW DEMONSTRATION)
+========================================================== */
+.registration{
+    padding:60px;
+    background:white;
+    text-align:center;
+}
+
+.scroll-box{
+    height:150px;          /* Fixed height */
+    width:60%;
+    margin:20px auto;      /* Center alignment using margin:auto */
+    border:2px solid #0a192f;
+    padding:15px;
+    overflow-y:auto;       /* Vertical scroll */
+    overflow-x:hidden;     /* No horizontal scroll */
+}
+
+/* ==========================================================
+   6. TRANSPARENT ANNOUNCEMENT BOX (RGBA)
+========================================================== */
+.announcement{
+    background:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center/cover;
+    padding:100px 20px;
+    position:relative;
+}
+
+/* Semi-transparent box using RGBA */
+.announcement-box{
+    background: rgba(0, 0, 0, 0.7); /* RGBA transparency */
+    color:white;
+    padding:40px;
+    width:60%;
+    margin:auto;
+    border-radius:15px;
+    text-align:center;
+}
+
+/* ==========================================================
+   7. FLOATING CONTACT BUTTON (FIXED POSITION)
+========================================================== */
+.contact-btn{
+    position: fixed;     /* Stays fixed while scrolling */
+    bottom: 20px;        /* Positioned bottom-right */
+    right: 20px;
+    background:#ff5722;
+    color:white;
+    padding:15px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.contact-btn:hover{
+    background:#e64a19;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===============================
+     1. STICKY NAVIGATION BAR
+================================ -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Speakers</a>
+    <a href="#">Register</a>
+    <a href="#">Contact</a>
+</nav>
+
+<!-- ===============================
+     2. HERO SECTION
+================================ -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>TECHNOVATION 2026</h1>
+        <p>National Level Technical Fest | Innovate • Build • Lead</p>
+    </div>
+</section>
+
+<!-- ===============================
+     3. ABOUT SECTION (FLOAT DEMO)
+================================ -->
+<section class="about">
+    <h2>About The Event</h2>
+    <br>
+    <img src="https://picsum.photos/400/300?conference" alt="Event Image">
+    <p>
+        Technovation 2026 is a National Level Technical Fest bringing together 
+        innovators, developers, engineers, and creators from across the country. 
+        The event features coding competitions, robotics challenges, AI workshops, 
+        hackathons, startup expos, and keynote sessions by industry leaders.
+        Participants will gain hands-on exposure, networking opportunities, and 
+        real-world problem-solving experience. This is not just an event — it is 
+        a platform where creativity meets technology.
+    </p>
+</section>
+
+<!-- ===============================
+     4. SPEAKERS SECTION
+================================ -->
+<section class="speakers">
+    <h2>Keynote Speakers</h2>
+
+    <div class="speaker-container">
+
+        <div class="card">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg">
+            <h3>Dr. Arjun Mehta</h3>
+            <p>AI Research Scientist</p>
+        </div>
+
+        <div class="card">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg">
+            <h3>Ms. Kavya Rao</h3>
+            <p>Cybersecurity Expert</p>
+        </div>
+
+        <div class="card">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg">
+            <h3>Mr. Rahul Verma</h3>
+            <p>Robotics Engineer</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===============================
+     5. REGISTRATION PANEL (OVERFLOW)
+================================ -->
+<section class="registration">
+    <h2>Registration Information</h2>
+
+    <div class="scroll-box">
+        Registrations are open for all undergraduate and postgraduate students.
+        Each participant must carry a valid college ID. Early bird registrations
+        will receive exclusive merchandise and workshop access passes.
+        Teams can consist of 2–4 members depending on the competition category.
+        Accommodation facilities are available for outstation participants.
+        The registration fee is non-refundable. Detailed rules, event schedules,
+        judging criteria, and prize details are available in the official brochure.
+        Make sure to complete your payment before the deadline to confirm participation.
+        Limited seats available. Register soon to secure your spot!
+    </div>
+</section>
+
+<!-- ===============================
+     6. ANNOUNCEMENT SECTION
+================================ -->
+<section class="announcement">
+    <div class="announcement-box">
+        <h2>🔥 Early Bird Offer!</h2>
+        <p>
+            Register before March 20th and get 30% discount plus 
+            exclusive access to premium workshops.
+        </p>
+    </div>
+</section>
+
+<!-- ===============================
+     7. FLOATING CONTACT BUTTON
+================================ -->
+<a href="#" class="contact-btn">Contact Us</a>
+
+</body>
+</html>
