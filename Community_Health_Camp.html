@@ -1,0 +1,207 @@
+<!--
+Design and develop a one-page responsive website for a Free Community Health Checkup Camp organized by a local NGO using Bootstrap 5. The webpage should provide complete information about the health camp and allow users to view services and register for the event. The website must include a header section with a display heading, subtitle, highlighted event date, and a short description. A services section should display different health services such as general checkup, blood test, eye checkup, and dental checkup using Bootstrap color utilities. A doctor schedule must be presented using a responsive table showing doctor names, specialization, and available time. The webpage should also include a gallery section with images related to health camp activities styled with Bootstrap image classes. An announcements section should display important updates using alerts. Finally, a registration section must contain different types of buttons such as contextual buttons, outline buttons, large and small buttons, a full-width button, a disabled button, and a button with a spinner. The layout should use Bootstrap containers and spacing utilities to maintain a clean, structured, and fully responsive design.
+
+--!>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Health Camp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+            <h1 class="display-3 fw-bold">
+                Free Community Health Checkup Camp
+                <small class="text-muted fs-4">by Helping Hands NGO Initiative</small>
+            </h1>
+
+            <p class="lead">
+                A free healthcare initiative dedicated to improving community well-being through professional medical support.
+            </p>
+
+            <p class="fs-5">
+                Event Date: <mark>20 April 2026</mark>
+            </p>
+        </div>
+
+
+        <div class="mb-5">
+            <h2 class="text-center mb-4">Health Services</h2>
+
+            <div class="row g-4 text-center">
+
+                <div class="col-md-3">
+                    <div class="p-4 text-bg-primary rounded shadow">
+                        <h5>General Checkup</h5>
+                        <p>Routine health examination and consultation</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-4 text-bg-success rounded shadow">
+                        <h5>Blood Test</h5>
+                        <p>Basic diagnostic blood screening</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-4 text-bg-warning rounded shadow">
+                        <h5>Eye Checkup</h5>
+                        <p>Vision testing and eye care advice</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-4 text-bg-danger rounded shadow">
+                        <h5>Dental Checkup</h5>
+                        <p>Oral health examination and consultation</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="mb-5">
+            <h2 class="text-center mb-4">Doctor Schedule</h2>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Doctor Name</th>
+                            <th>Specialization</th>
+                            <th>Available Time</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Dr. Anjali Verma</td>
+                            <td>General Physician</td>
+                            <td>9:00 AM – 11:00 AM</td>
+                        </tr>
+
+                        <tr>
+                            <td>Dr. Roshan Patel</td>
+                            <td>Pathologist</td>
+                            <td>10:00 AM – 1:00 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td>Dr. Meera Nairy</td>
+                            <td>Ophthalmologist</td>
+                            <td>11:00 AM – 2:00 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td>Dr. Arvind D Kumar</td>
+                            <td>Dentist</td>
+                            <td>1:00 PM – 4:00 PM</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+
+        <div class="mb-5">
+            <h2 class="text-center mb-4">Health Camp Gallery</h2>
+
+            <div class="row g-4 text-center">
+
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb"
+                        class="img-fluid img-thumbnail" width="240">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982"
+                        class="img-fluid rounded-circle mx-auto d-block" alt="">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b"
+                        class="img-fluid img-thumbnail">
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="mb-5">
+            <h2 class="text-center mb-4">Important Announcements</h2>
+
+            <div class="alert alert-success">
+                Registration Open for all community members
+            </div>
+
+            <div class="alert alert-warning">
+                Limited Seats Available – Register early
+            </div>
+
+            <div class="alert alert-info alert-dismissible fade show">
+                Free medicines will also be distributed.
+                <a href="#" class="alert-link">More details</a>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+
+
+        <div class="mb-5">
+            <h2 class="text-center mb-4">Register Now</h2>
+
+            <div class="text-center mb-3">
+                <button class="btn btn-primary m-1">Primary</button>
+                <button class="btn btn-success m-1">Success</button>
+                <button class="btn btn-danger m-1">Danger</button>
+                <button class="btn btn-warning m-1">Warning</button>
+            </div>
+
+            <div class="text-center mb-3">
+                <button class="btn btn-outline-primary m-1">Outline Primary</button>
+                <button class="btn btn-outline-success m-1">Outline Success</button>
+                <button class="btn btn-outline-danger m-1">Outline Danger</button>
+            </div>
+
+            <div class="text-center mb-3">
+                <button class="btn btn-primary btn-lg m-1">Large Button</button>
+                <button class="btn btn-secondary btn-sm m-1">Small Button</button>
+            </div>
+
+            <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-dark">Complete Registration</button>
+            </div>
+
+            <div class="text-center mb-3">
+                <button class="btn btn-secondary disabled">Registration Closed</button>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-success">
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Processing
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
