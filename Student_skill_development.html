@@ -1,0 +1,207 @@
+<!--Develop and design a one-page responsive website called Student Skill Development Portal using Bootstrap 5 to help students improve their technical skills. Many students want to learn areas such as programming, web development, artificial intelligence, and data science, but they need a simple platform to easily view courses, track their learning progress, and access useful learning resources. The website should provide a clear and user-friendly interface where students can explore available courses, enroll in them, and monitor their skill progress through visual indicators. It should also include organized navigation for different resources like tutorials, practice problems, projects, and interview questions. By using Bootstrap components such as navbar, dropdowns, cards, progress bars, navs, and button groups, the portal will provide a structured and responsive layout that helps students easily navigate the platform and support their skill development journey-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skill Portal</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand d-flex align-items-center" href="#">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" width="35" class="me-2">
+Skill Portal
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navmenu">
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#courses">Courses</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#progress">Progress</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#resources">Resources</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#contact">Contact</a>
+</li>
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+Categories
+</a>
+
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="#">Web Development</a></li>
+<li><a class="dropdown-item" href="#">Artificial Intelligence</a></li>
+<li><a class="dropdown-item" href="#">Data Science</a></li>
+</ul>
+
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<section class="bg-light text-center p-5">
+<div class="container">
+<h1>Student Skill Development Portal</h1>
+<p>Improve your skills through structured courses, resources and practical learning.</p>
+</div>
+</section>
+
+<section id="courses" class="container mt-5">
+<h2 class="text-center mb-4">Popular Courses</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Web Development</h5>
+<p class="card-text">Learn HTML, CSS, Bootstrap and JavaScript to build modern websites.</p>
+<a href="#" class="btn btn-primary">Enroll</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Python Programming</h5>
+<p class="card-text">Master Python programming and build real-world applications.</p>
+<a href="#" class="btn btn-success">Enroll</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Artificial Intelligence</h5>
+<p class="card-text">Explore machine learning, AI tools and intelligent systems.</p>
+<a href="#" class="btn btn-danger">Enroll</a>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="progress" class="container mt-5">
+<h2 class="text-center mb-4">Skill Progress</h2>
+
+<p>HTML</p>
+<div class="progress mb-3">
+<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:80%">80%</div>
+</div>
+
+<p>CSS</p>
+<div class="progress mb-3">
+<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width:70%">70%</div>
+</div>
+
+<p>JavaScript</p>
+<div class="progress mb-3">
+<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:60%">60%</div>
+</div>
+
+<p>Python</p>
+<div class="progress mb-3">
+<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:50%">50%</div>
+</div>
+
+</section>
+
+<section id="resources" class="container mt-5">
+<h2 class="text-center mb-4">Learning Resources</h2>
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+<li class="nav-item">
+<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tutorials">Tutorials</button>
+</li>
+
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="pill" data-bs-target="#practice">Practice Problems</button>
+</li>
+
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="pill" data-bs-target="#projects">Projects</button>
+</li>
+
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="pill" data-bs-target="#interview">Interview Questions</button>
+</li>
+
+</ul>
+
+<div class="tab-content">
+
+<div class="tab-pane fade show active" id="tutorials">
+<p>Access structured tutorials for programming, web development and AI.</p>
+</div>
+
+<div class="tab-pane fade" id="practice">
+<p>Solve coding challenges and improve logical thinking.</p>
+</div>
+
+<div class="tab-pane fade" id="projects">
+<p>Work on mini projects and build a professional portfolio.</p>
+</div>
+
+<div class="tab-pane fade" id="interview">
+<p>Prepare for job interviews with commonly asked technical questions.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="container text-center mt-5">
+<h2 class="mb-4">Student Actions</h2>
+
+<div class="btn-group">
+
+<button class="btn btn-primary">Download Notes</button>
+<button class="btn btn-success">Join Workshop</button>
+<button class="btn btn-warning">Register Internship</button>
+
+</div>
+
+</section>
+
+<footer id="contact" class="bg-dark text-light text-center p-4 mt-5">
+
+<p>Contact: skillportal@gmail.com</p>
+<p>Phone: +91 9876543210</p>
+<p>© 2026 Skill Portal. All Rights Reserved.</p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
